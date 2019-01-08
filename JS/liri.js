@@ -8,8 +8,6 @@ require("dotenv").config();
 var axios = require("axios");
 
 //var spotify = new Spotify(keys.spotify);
-//var axiosKey = new Axios(keys.axiosKey.key);
-
 
 var nodeArgs = process.argv;
 var action = process.argv[2];
@@ -49,18 +47,36 @@ switch (action) {
 // Functions to be called
 function movie() {
 
-  axios.get("http://www.omdbapi.com/?t=" + value + "&y=&plot=short&tomatoes=true&apikey=trilogy").then(
-    function (response) {
-      console.log("The movie's title: " + response.data.Title);
-      console.log("Year released: " + response.data.Year);
-      console.log("The movie's rating is: " + response.data.imdbRating);
-      console.log("The movie's Rotten Tomatoes rating is: " + response.data.tomatoRating);
-      console.log("Country produced: " + response.data.Country);
-      console.log("The movie's language is: " + response.data.Language);
-      console.log("The movie's plot is: " + response.data.Plot);
-      console.log("The movie's actors are: " + response.data.Actors);
-    }
-  );
+  if (value.length === 0) {
+    axios.get("http://www.omdbapi.com/?t=Mr+Nobody&y=&plot=short&tomatoes=true&apikey=trilogy").then(
+      function (response) {
+        console.log("Mr.Nobody is a great movie! You should check it out on Netflix!");
+        console.log("The movie's title: " + response.data.Title);
+        console.log("Year released: " + response.data.Year);
+        console.log("The movie's rating is: " + response.data.imdbRating);
+        console.log("The movie's Rotten Tomatoes rating is: " + response.data.Ratings[1].Value);
+        console.log("Country produced: " + response.data.Country);
+        console.log("The movie's language is: " + response.data.Language);
+        console.log("The movie's plot is: " + response.data.Plot);
+        console.log("The movie's actors are: " + response.data.Actors);
+      }
+
+    )
+  }
+  else {
+    axios.get("http://www.omdbapi.com/?t=" + value + "&y=&plot=short&tomatoes=true&apikey=trilogy").then(
+      function (response) {
+        console.log("The movie's title: " + response.data.Title);
+        console.log("Year released: " + response.data.Year);
+        console.log("The movie's rating is: " + response.data.imdbRating);
+        console.log("The movie's Rotten Tomatoes rating is: " + response.data.Ratings[1].Value);
+        console.log("Country produced: " + response.data.Country);
+        console.log("The movie's language is: " + response.data.Language);
+        console.log("The movie's plot is: " + response.data.Plot);
+        console.log("The movie's actors are: " + response.data.Actors);
+      }
+    );
+  };
 }
 
 
