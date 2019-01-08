@@ -6,6 +6,7 @@ require("dotenv").config();
 
 //var Spotify = require('node-spotify-api');
 var axios = require("axios");
+var moment = require("moment");
 
 //var spotify = new Spotify(keys.spotify);
 
@@ -26,16 +27,17 @@ for (var i = 3; i < nodeArgs.length; i++) {
 
 // which actions to be called
 switch (action) {
+
+  case "movie-this":
+    movie();
+    break;
+
   case "concert-this":
     concert();
     break;
 
   case "spotify-this-song":
     song();
-    break;
-
-  case "movie-this":
-    movie();
     break;
 
   case "do-what-it-says":
@@ -78,6 +80,23 @@ function movie() {
     );
   };
 }
+
+
+function concert() {
+
+  axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp").then(
+    function (response) {
+
+      for (var i = 0; i < response.data.length; i++) {
+        console.log("Next concert venue:" + response.data[i].venue.name);
+        console.log("Venue location:" + response.data[i].venue.city + ", " + response.data[i].venue.country);
+        console.log("Date:" + moment(response.data[i].datetime).format("MM-DD-YYYY"));
+      }
+    }
+  )
+};
+
+
 
 
 function song() {
