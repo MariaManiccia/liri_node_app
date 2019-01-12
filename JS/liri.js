@@ -47,8 +47,10 @@ switch (action) {
 
 
 // Functions to be called
+// Movie function using OMDB API
 function movie() {
 
+  // if the user doesn's enter a movie
   if (value.length === 0) {
     axios.get("http://www.omdbapi.com/?t=Mr+Nobody&y=&plot=short&tomatoes=true&apikey=trilogy").then(
       function (response) {
@@ -65,6 +67,7 @@ function movie() {
 
     )
   }
+  // otherwise
   else {
     axios.get("http://www.omdbapi.com/?t=" + value + "&y=&plot=short&tomatoes=true&apikey=trilogy").then(
       function (response) {
@@ -81,16 +84,23 @@ function movie() {
   };
 }
 
-
+// function to get concerts of an artist
 function concert() {
 
   axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp").then(
     function (response) {
-
-      for (var i = 0; i < response.data.length; i++) {
-        console.log("Next concert venue:" + response.data[i].venue.name);
-        console.log("Venue location:" + response.data[i].venue.city + ", " + response.data[i].venue.country);
-        console.log("Date:" + moment(response.data[i].datetime).format("MM-DD-YYYY"));
+      // make sure you can get information
+      if (this.response === undefined) {
+        console.log("Sorry! They aren't on tour right now. Try another artist.");
+      }
+      else {
+        console.log("Here's their lineup!");
+        // to grab all the information
+        for (var i = 0; i < response.data.length; i++) {
+          console.log("Next concert venue:" + response.data[i].venue.name);
+          console.log("Venue location:" + response.data[i].venue.city + ", " + response.data[i].venue.country);
+          console.log("Date:" + moment(response.data[i].datetime).format("MM-DD-YYYY"));
+        }
       }
     }
   )
@@ -101,10 +111,16 @@ function concert() {
 
 function song() {
 
-  spotify.get().then(
-    function (response) {
-      console.log(response);
-    }
-  );
+  if (value.length === 0) {
+
+  }
+
+  else {
+
+  }
+}
+
+function doIt() {
+
 }
 
