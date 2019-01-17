@@ -1,22 +1,19 @@
-// Configs
+
 require("dotenv").config();
 
 // Main Variables
 var keys = require("./keys.js");
-
-var Spotify = require('node-spotify-api');
 var axios = require("axios");
 var moment = require("moment");
+var fs = require("fs");
 
-//var spotify = new Spotify(keys.spotify);
+
+var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
 
 var nodeArgs = process.argv;
 var action = process.argv[2];
 var value = "";
-
-function Spotify(){
-  
-}
 
 // Allowing multiples words 
 for (var i = 3; i < nodeArgs.length; i++) {
@@ -29,7 +26,7 @@ for (var i = 3; i < nodeArgs.length; i++) {
   }
 }
 
-// which actions to be called
+// Which actions to be called
 switch (action) {
 
   case "movie-this":
@@ -54,7 +51,7 @@ switch (action) {
 // Movie function using OMDB API
 function movie() {
 
-  // if the user doesn's enter a movie
+  // If the user doesn't enter a movie
   if (value.length === 0) {
     axios.get("http://www.omdbapi.com/?t=Mr+Nobody&y=&plot=short&tomatoes=true&apikey=trilogy").then(
       function (response) {
@@ -71,7 +68,8 @@ function movie() {
 
     )
   }
-  // otherwise
+  // If they enter a movie title
+  // Grab the information
   else {
     axios.get("http://www.omdbapi.com/?t=" + value + "&y=&plot=short&tomatoes=true&apikey=trilogy").then(
       function (response) {
@@ -93,47 +91,66 @@ function concert() {
 
   axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp").then(
     function (response) {
-      // make sure you can get information
-      if (this.response === undefined) {
+      // See if the information is there
+      if (response === undefined) {
         console.log("Sorry! They aren't on tour right now. Try another artist.");
       }
       else {
+
         console.log("Here's their next couple shows!");
-        // to grab all the information
-          console.log("Next concert venue:" + response.data[1].venue.name);
-          console.log("Venue location:" + response.data[1].venue.city + ", " + response.data[1].venue.country);
-          console.log("Date:" + moment(response.data[1].datetime).format("MM-DD-YYYY"));
-          console.log("--------------------");
-          console.log("Next concert venue:" + response.data[2].venue.name);
-          console.log("Venue location:" + response.data[2].venue.city + ", " + response.data[2].venue.country);
-          console.log("Date:" + moment(response.data[2].datetime).format("MM-DD-YYYY"));
-          console.log("--------------------");
-          console.log("Next concert venue:" + response.data[3].venue.name);
-          console.log("Venue location:" + response.data[3].venue.city + ", " + response.data[3].venue.country);
-          console.log("Date:" + moment(response.data[3].datetime).format("MM-DD-YYYY"));
-        }
+        console.log("--------------------");
+        // To grab all the information
+        var info = response.data;
+        console.log("Next concert venue: " + info[1].venue.name);
+        console.log("Venue location: " + info[1].venue.city + ", " + info[1].venue.country);
+        console.log("Date: " + moment(info[1].datetime).format("MM-DD-YYYY"));
+        console.log("--------------------");
+        console.log("Next concert venue: " + info[2].venue.name);
+        console.log("Venue location: " + info[2].venue.city + ", " + info[2].venue.country);
+        console.log("Date: " + moment(info[2].datetime).format("MM-DD-YYYY"));
+        console.log("--------------------");
+        console.log("Next concert venue: " + info[3].venue.name);
+        console.log("Venue location: " + info[3].venue.city + ", " + info[3].venue.country);
+        console.log("Date: " + moment(info[3].datetime).format("MM-DD-YYYY"));
       }
-  )
+    });
 };
 
 
 
 
-/*function song() {
-  console.log(keys.spotify)
-  spotify.search({ type: "track", query: value, limit: 1 }, function (err, data) {
+function song() {
+
+  if (value.length === 0) {
+    value = "The Sign + Ace of Base"
+  }
+
+  spotify.search({ type: 'track', query: value }, function (err, data) {
     if (err) {
-      return console.log("Error occured: " + err);
+      return console.log('Error occurred: ' + err);
     }
 
-    var artist = data.tracks.items[0].artists;
-    var album = data.tracks.items[0].album.name;
-    var link = data.tracks.items[0].preview_url;
-    console.log(artist, album, link);
-  })
-}*/
+    console.log("artist name: ", data.tracks.items[0].album.artists[0].name);
+    console.log("album name: ", data.tracks.items[0].album.name);
+    console.log("song name: ", data.tracks.items[0].name);
+    console.log("preview: ", data.tracks.items[0].preview_url);
+
+  });
+};
 
 function doIt() {
 
-}
+  fs.readFile('random.txt', 'utf8', function (err, data) {
+    if (err) throw err;
+
+    var random = data.split(',')
+    var command = random[0];
+    var search = random[1];
+
+    action = command,
+    value = search,
+    song();
+  });
+};
+
 
