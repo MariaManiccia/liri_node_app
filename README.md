@@ -10,7 +10,7 @@
 <p>When you enter: "node liri concert-this ARTIST/BAND NAME" into the terminal, Liri will return the next three concerts information for the band or artist you entered. If that band is not on tour, the terminal will inform you.</p>
 
 <h4>Example:</h4>
-![concert-this GIF](images/concertGIF.gif)
+![Concert this command image](images/concert.png)
 
 <h3>2. spotify-this-song</h3>
 
@@ -24,7 +24,7 @@
 </ul>
 
 <h4>Example:</h4>
-Format: ![Alt Text](url)
+![Spotify this song command image](images/spotify.png)
 
 <h3>3. movie-this</h3>
 
@@ -42,7 +42,7 @@ Format: ![Alt Text](url)
 </ul>
 
 <h4>Example:</h4>
-Format: ![Alt Text](url)
+![Movie this command image](images/movie.png)
 
 <h3>4. do-what-it-says</h3>
 
@@ -51,4 +51,4 @@ Format: ![Alt Text](url)
 <h5>spotify-this-song,"I Want it That Way"</h5>
 
 <h4>and Liri returns:</h4>
-Format: ![Alt Text](url)
+![Do what it says command image](images/doIt.png)
