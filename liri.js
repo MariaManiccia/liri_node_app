@@ -88,7 +88,7 @@ function movie() {
 
 // function to get concerts of an artist
 function concert() {
-
+  //ask the API
   axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp").then(
     function (response) {
       // See if the information is there
@@ -96,7 +96,7 @@ function concert() {
         console.log("Sorry! They aren't on tour right now. Try another artist.");
       }
       else {
-
+        // if they are touring
         console.log("Here's their next couple shows!");
         console.log("--------------------");
         // To grab all the information
@@ -118,18 +118,19 @@ function concert() {
 
 
 
-
+// function for the song
 function song() {
-
+  // if they don't type a song title
   if (value.length === 0) {
     value = "The Sign + Ace of Base"
   }
-
+  //if they do type a song title
+  //call for the infromation
   spotify.search({ type: 'track', query: value }, function (err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
-
+    //log certain information
     console.log("artist name: ", data.tracks.items[0].album.artists[0].name);
     console.log("album name: ", data.tracks.items[0].album.name);
     console.log("song name: ", data.tracks.items[0].name);
@@ -138,15 +139,17 @@ function song() {
   });
 };
 
+//function to grab information from a text file
 function doIt() {
-
+  //call for the information
   fs.readFile('random.txt', 'utf8', function (err, data) {
     if (err) throw err;
-
+    //grab the information
     var random = data.split(',')
     var command = random[0];
     var search = random[1];
 
+    // gaher information and call the proper function
     action = command,
     value = search,
     song();

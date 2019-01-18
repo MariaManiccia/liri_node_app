@@ -1,4 +1,5 @@
-console.log("this is loaded");
+console.log("this has loaded");
+console.log("--------------");
 
 // Spotify keys
 exports.spotify = {
