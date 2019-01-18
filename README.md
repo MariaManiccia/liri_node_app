@@ -3,7 +3,6 @@
 <h2>The Language Interpretation and Recognition Interface</h2>
 <br>
 <p>LIRI is a command line node app that takes in parameters and gives back data.</p>
-<br>
 <h3>::Commands::</h3>
 <br>
 <h3>1. concert-this</h3>
@@ -41,3 +40,11 @@
 </ul>
 
 <h4>Example:</h4>
+
+<h3>4. do-what-it-says</h3>
+
+<p>This command uses the termial and the fs module to pull the information from the random.txt file and populate information. In this example, the random.txt file contains the following:</p>
+
+<h5>spotify-this-song,"I Want it That Way"</h5>
+
+<p>and Liri returns:</p>
