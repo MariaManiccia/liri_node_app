@@ -1,4 +1,4 @@
-console.log("this has loaded");
+// to show it's loaded
 console.log("--------------");
 
 // Spotify keys

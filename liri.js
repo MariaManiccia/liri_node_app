@@ -126,7 +126,7 @@ function song() {
   }
   //if they do type a song title
   //call for the infromation
-  spotify.search({ type: 'track', query: value }, function (err, data) {
+  else {spotify.search({ type: 'track', query: value }, function (err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
@@ -137,6 +137,7 @@ function song() {
     console.log("preview: ", data.tracks.items[0].preview_url);
 
   });
+  };
 };
 
 //function to grab information from a text file
