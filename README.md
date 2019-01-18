@@ -8,7 +8,7 @@
 <br>
 <h3>1. concert-this</h3>
 
-<p>When you enter: "node liri concert-this ARTIST/BAND NAME" into the terminal, Liri will return the next three concerts information for the band or artist you entered. If that band is not on tour, the termial will inform you.</p>
+<p>When you enter: "node liri concert-this ARTIST/BAND NAME" into the terminal, Liri will return the next three concerts information for the band or artist you entered. If that band is not on tour, the terminal will inform you.</p>
 
 <h4>Example:</h4>
 
@@ -21,6 +21,23 @@
 <li>The song's name</li>
 <li>A preview link of the song from Spotify</li>
 <li>The album that the song is from</li>
+</ul>
+
+<h4>Example:</h4>
+
+<h3>3. movie-this</h3>
+
+<p>When you enter: "node liri.js movie-this MOVIE NAME" into the terminal, Liri will give you the following information about the specified film:</p>
+
+<ul>
+<li>Title of the movie.</li>
+<li>Year the movie came out.</li>
+<li>IMDB Rating of the movie.</li>
+<li>Rotten Tomatoes Rating of the movie.</li>
+<li>Country where the movie was produced.</li>
+<li>Language of the movie.</li>
+<li>Plot of the movie.</li>
+<li>Actors in the movie.</li>
 </ul>
 
 <h4>Example:</h4>
