@@ -10,7 +10,7 @@
 <p>When you enter: "node liri concert-this ARTIST/BAND NAME" into the terminal, Liri will return the next three concerts information for the band or artist you entered. If that band is not on tour, the terminal will inform you.</p>
 
 <h4>Example:</h4>
-Format: ![concert-this Gif]("https://giphy.com/embed/ZvaRWfB0skqVYzbDss")
+Format: ![concert-this Gif]("https://media.giphy.com/media/ZvaRWfB0skqVYzbDss/source.mp4")
 
 <h3>2. spotify-this-song</h3>
 
