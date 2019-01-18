@@ -10,7 +10,7 @@
 <p>When you enter: "node liri concert-this ARTIST/BAND NAME" into the terminal, Liri will return the next three concerts information for the band or artist you entered. If that band is not on tour, the terminal will inform you.</p>
 
 <h4>Example:</h4>
-![Concert this command image](https://github.com/MariaManiccia/liri-node-app/blob/master/images/concert.png?raw=true)
+![Concert this command image](https://github.com/MariaManiccia/liri_node_app/blob/master/images/concert.png?raw=true)
 
 <h3>2. spotify-this-song</h3>
 
@@ -24,7 +24,7 @@
 </ul>
 
 <h4>Example:</h4>
-![Spotify this song command image](https://github.com/MariaManiccia/liri-node-app/blob/master/images/spotify.png?raw=true)
+![Spotify this song command image](https://github.com/MariaManiccia/liri_node_app/blob/master/images/spotify.png?raw=true)
 
 <h3>3. movie-this</h3>
 
@@ -42,7 +42,7 @@
 </ul>
 
 <h4>Example:</h4>
-![Movie this command image](https://github.com/MariaManiccia/liri-node-app/blob/master/images/movie.png?raw=true)
+![Movie this command image](https://github.com/MariaManiccia/liri_node_app/blob/master/images/movie.png?raw=true)
 
 <h3>4. do-what-it-says</h3>
 
@@ -51,4 +51,4 @@
 <h5>spotify-this-song,"I Want it That Way"</h5>
 
 <h4>and Liri returns:</h4>
-![Do what it says command image](https://github.com/MariaManiccia/liri-node-app/blob/master/images/doIt.png?raw=true)
+![Do what it says command image](https://github.com/MariaManiccia/liri_node_app/blob/master/images/doIt.png?raw=true)
