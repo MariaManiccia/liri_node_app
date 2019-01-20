@@ -31,6 +31,11 @@
 </ul>
 
 <h4>Example:</h4>
+
+<img src="images/spotify"
+     alt="spotify-this"
+     style="float: left; margin-right: 10px;" />
+
 ![Spotify this song command image](https://github.com/MariaManiccia/liri_node_app/blob/master/images/spotify.png?raw=true)
 
 <!--Movie-this-->
