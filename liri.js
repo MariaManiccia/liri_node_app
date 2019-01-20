@@ -150,7 +150,7 @@ function doIt() {
     var command = random[0];
     var search = random[1];
 
-    // gaher information and call the proper function
+    // gather information and call the proper function
     action = command,
     value = search,
     song();
